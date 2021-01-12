@@ -5,8 +5,12 @@
         </svg>
         <p>Let's add some tasks!</p>
     </div>
-    
 </template>
+
+<script>
+
+
+</script>
 
 <style scope lang="scss">
     .tasksPreload{

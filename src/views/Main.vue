@@ -1,21 +1,18 @@
 <template>
-  <div class="task">
+  <div class="main">
     <Head />
     <Taskbar />
-    <Tasks />
   </div>
 </template>
 
 <script>
 import Head from "@/components/Head.vue";
 import Taskbar from "@/components/Taskbar.vue";
-import Tasks from "@/components/Tasks.vue"
 
 export default {
   components: {
     Head,
-    Taskbar,
-    Tasks
+    Taskbar
   }
 };
 </script>
@@ -26,7 +23,7 @@ export default {
     padding: 0;
     box-sizing: border-box;
   }
-  .task {
+  .main {
     font-family: 'montserrat';
     color: #707070;
     background-color: #fdfdfd;

@@ -1,7 +1,7 @@
 <template>
     <div class="taskbar">
-        <form class="inputfield">
-            <input type="text" name="task" class="input" placeholder="Add task">
+        <form @submit.prevent="addNewTask" class="inputfield">
+            <input v-model="newTask" type="text" name="newTask" class="input" placeholder="Add task">
 
             <button>
                 <svg class="cross" xmlns="http://www.w3.org/2000/svg" width="15.5" height="15.5" viewBox="0 0 15.5 15.5">
@@ -10,7 +10,70 @@
             </button>
         </form>
     </div>
+
+    <ul>
+        <li class="task" v-for="task in tasks" :key="task.id">
+        
+                
+            <div class="field">
+                <input @click="toggleDone(task)" type="checkbox" id="blue" />
+                <label for="blue"></label>
+                <p :class="{ done : task.done}">{{task.content}}</p>
+            </div>
+
+                 
+            <button class="taskBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="34.833" height="38.482" viewBox="0 0 34.833 38.482">
+                    <g id="Icon_feather-trash-2" data-name="Icon feather-trash-2" transform="translate(1 1)">
+                        <path id="Path_2" data-name="Path 2" d="M4.5,9H37.333" transform="translate(-4.5 -1.704)" fill="none" stroke="#f59c9c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        <path id="Path_3" data-name="Path 3" d="M33.037,10.3V35.833a3.648,3.648,0,0,1-3.648,3.648H11.148A3.648,3.648,0,0,1,7.5,35.833V10.3m5.472,0V6.648A3.648,3.648,0,0,1,16.62,3h7.3a3.648,3.648,0,0,1,3.648,3.648V10.3" transform="translate(-3.852 -3)" fill="none" stroke="#f59c9c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        <path id="Path_4" data-name="Path 4" d="M15,16.5V27.444" transform="translate(-2.231 -0.083)" fill="none" stroke="#f59c9c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        <path id="Path_5" data-name="Path 5" d="M21,16.5V27.444" transform="translate(-0.935 -0.083)" fill="none" stroke="#f59c9c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    </g>
+                </svg>
+            </button>
+        </li>
+    </ul>
+
+    <div v-if="tasks.length == 0" class="tasksPreload">
+        <svg xmlns="http://www.w3.org/2000/svg" width="69.73" height="58.839" viewBox="0 0 69.73 58.839">
+            <path id="Icon_awesome-tasks" data-name="Icon awesome-tasks" d="M19.014,2.729a1.634,1.634,0,0,0-2.315,0L8.026,11.351,4.934,8.338a1.634,1.634,0,0,0-2.315,0L.481,10.479a1.634,1.634,0,0,0,0,2.315L6.962,19.25a1.741,1.741,0,0,0,2.4,0l2.123-2.127,9.833-9.832a1.647,1.647,0,0,0,.012-2.315Zm0,21.68a1.634,1.634,0,0,0-2.315,0L8.026,33.087l-3.092-3.01a1.634,1.634,0,0,0-2.315,0L.481,32.214a1.634,1.634,0,0,0,0,2.315L6.946,41a1.739,1.739,0,0,0,2.4,0l2.138-2.137,9.833-9.836a1.634,1.634,0,0,0,.012-2.3Zm-10.3,23.6a6.538,6.538,0,1,0,0,13.074,6.537,6.537,0,0,0,0-13.074Zm58.835,2.179H28.328a2.179,2.179,0,0,0-2.179,2.179v4.358a2.179,2.179,0,0,0,2.179,2.179H67.551a2.179,2.179,0,0,0,2.179-2.179V52.371A2.179,2.179,0,0,0,67.551,50.191Zm0-43.581H28.328a2.179,2.179,0,0,0-2.179,2.179v4.358a2.179,2.179,0,0,0,2.179,2.179H67.551a2.179,2.179,0,0,0,2.179-2.179V8.789A2.179,2.179,0,0,0,67.551,6.61Zm0,21.791H28.328a2.179,2.179,0,0,0-2.179,2.179v4.358a2.179,2.179,0,0,0,2.179,2.179H67.551a2.179,2.179,0,0,0,2.179-2.179V30.58A2.179,2.179,0,0,0,67.551,28.4Z" transform="translate(0 -2.248)" fill="#b4b4b4"/>
+        </svg>
+        <p>Let's add some tasks!</p>
+    </div>
 </template>
+
+<script> 
+import { ref } from 'vue';
+
+export default{
+    setup(){
+        const newTask = ref('');
+        const tasks = ref([]);
+
+        function addNewTask(){
+            tasks.value.push({
+                id: Date.now(),
+                done: false,
+                content: newTask.value,
+            });
+            newTask.value = "";
+            console.log(tasks);
+        }
+
+        function toggleDone(task){
+            task.done = !task.done;
+        }
+    
+        return{
+            tasks,
+            newTask,
+            addNewTask,
+            toggleDone,
+        };
+    }
+}
+</script>
 
 <style scope lang="scss">
     .taskbar{
@@ -29,6 +92,7 @@
                 color: #707070;
                 padding: clamp(0.75rem, 2vw, 2rem); 
                 font-size: clamp(0.8rem, 1.25vw, 1.5rem);
+                font-weight: 700;
             }
             input::placeholder{
                 color: #c7c7c7;
@@ -53,5 +117,41 @@
                 }
             }
         }
+    }
+    .task{
+        display: flex;
+        justify-content: space-between;
+        padding: 1.5rem 0;
+        border-bottom: solid lightgray 2px;
+        .field{
+        display: flex;
+        align-items: center;
+            p{
+                font-weight: 700;
+                padding: 0 1.5rem;
+            }
+        }
+        .taskBtn{
+            background: none;
+            border: none;
+            cursor: pointer;
+            transform: scale(0.65);
+        }
+    }
+    .done{
+        text-decoration: line-through;
+    }
+    .tasksPreload{
+        display: flex;
+        flex-direction: column;
+        flex: auto; 
+        align-items: center;
+        justify-content: center;   
+        p{
+            font-size: clamp(0.7rem, 3vw, 1.25rem);
+            font-weight: 600;
+            padding-top: 2em;
+            color: #b4b4b4;
+        }   
     }
 </style>
