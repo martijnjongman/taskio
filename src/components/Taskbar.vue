@@ -33,7 +33,7 @@
     </transition-group>
 
     <transition name="fade">
-        <div v-if="tasks.length === 0" class="tasksPreload">
+        <div v-if="tasks.length === 0" class="tasksPlaceholder">
                 <svg xmlns="http://www.w3.org/2000/svg" width="69.73" height="58.839" viewBox="0 0 69.73 58.839">
                     <path id="Icon_awesome-tasks" data-name="Icon awesome-tasks" d="M19.014,2.729a1.634,1.634,0,0,0-2.315,0L8.026,11.351,4.934,8.338a1.634,1.634,0,0,0-2.315,0L.481,10.479a1.634,1.634,0,0,0,0,2.315L6.962,19.25a1.741,1.741,0,0,0,2.4,0l2.123-2.127,9.833-9.832a1.647,1.647,0,0,0,.012-2.315Zm0,21.68a1.634,1.634,0,0,0-2.315,0L8.026,33.087l-3.092-3.01a1.634,1.634,0,0,0-2.315,0L.481,32.214a1.634,1.634,0,0,0,0,2.315L6.946,41a1.739,1.739,0,0,0,2.4,0l2.138-2.137,9.833-9.836a1.634,1.634,0,0,0,.012-2.3Zm-10.3,23.6a6.538,6.538,0,1,0,0,13.074,6.537,6.537,0,0,0,0-13.074Zm58.835,2.179H28.328a2.179,2.179,0,0,0-2.179,2.179v4.358a2.179,2.179,0,0,0,2.179,2.179H67.551a2.179,2.179,0,0,0,2.179-2.179V52.371A2.179,2.179,0,0,0,67.551,50.191Zm0-43.581H28.328a2.179,2.179,0,0,0-2.179,2.179v4.358a2.179,2.179,0,0,0,2.179,2.179H67.551a2.179,2.179,0,0,0,2.179-2.179V8.789A2.179,2.179,0,0,0,67.551,6.61Zm0,21.791H28.328a2.179,2.179,0,0,0-2.179,2.179v4.358a2.179,2.179,0,0,0,2.179,2.179H67.551a2.179,2.179,0,0,0,2.179-2.179V30.58A2.179,2.179,0,0,0,67.551,28.4Z" transform="translate(0 -2.248)" fill="#b4b4b4"/>
                 </svg>
@@ -190,8 +190,8 @@ export default{
     transition: all 500ms ease-out;
 }
 
-//Preloader
-.tasksPreload{
+//Placeholder
+.tasksPlaceholder{
     display: flex;
     flex: auto;
     flex-direction: column; 
@@ -208,7 +208,7 @@ export default{
         color: #b4b4b4;
     }   
 }
-//Preloader Animation
+//Placeholder Animation
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity 0.5s ease;

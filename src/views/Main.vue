@@ -1,5 +1,8 @@
 <template>
   <div class="main">
+    <div class="main__preloader">
+      <Preloader />
+    </div>
     <div class="main__header">
       <Head />
     </div>
@@ -10,11 +13,13 @@
 </template>
 
 <script>
+import Preloader from "@/components/Preloader.vue";
 import Head from "@/components/Head.vue";
 import Taskbar from "@/components/Taskbar.vue";
 
 export default {
   components: {
+    Preloader,
     Head,
     Taskbar
   }
