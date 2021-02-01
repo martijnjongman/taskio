@@ -1,7 +1,7 @@
 <template>
     <div class="taskbar">
-        <form @submit.prevent="addNewTask" class="inputfield">
-            <input v-model="newTask" type="text" name="newTask" class="input" placeholder="Add task">
+        <form @submit.prevent="addNewTask" class="taskbar__inputfield">
+            <input v-model="newTask" type="text" name="newTask" class="taskbar__inputfield--input" placeholder="Add task">
 
             <button>
                 <svg class="cross" xmlns="http://www.w3.org/2000/svg" width="15.5" height="15.5" viewBox="0 0 15.5 15.5">
@@ -12,14 +12,14 @@
     </div>
 
     <transition-group tag="ul" name="list" class="list">
-        <li class="task" v-for="(task, index) in tasks" :key="task.id">                    
-            <div class="field">
-                <input @click="toggleDone(task)" type="checkbox" id="blue" />
+        <li class="list__task" v-for="(task, index) in tasks" :key="task.id">                    
+            <div class="list__task--field">
+                <input @click="toggleDone(task)" type="checkbox" />
                 <label for="blue"></label>
                 <p :class="{ done : task.done}">{{task.content}}</p>
             </div>    
 
-            <button class="taskBtn" @click="removeTodo(index)">
+            <button class="list__task--taskBtn" @click="removeTodo(index)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="34.833" height="38.482" viewBox="0 0 34.833 38.482">
                     <g id="Icon_feather-trash-2" data-name="Icon feather-trash-2" transform="translate(1 1)">
                         <path id="Path_2" data-name="Path 2" d="M4.5,9H37.333" transform="translate(-4.5 -1.704)" fill="none" stroke="#f59c9c" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
@@ -96,14 +96,14 @@ export default{
 .taskbar{
     padding-top: clamp(2rem, 4vw, 6rem);
     flex: none;
-    .inputfield{
+    .taskbar__inputfield{
         width: 100%;
         border-radius: 5px;
         border: none;
         background: #f4f4f4;
         display: flex;
         justify-content: space-between;      
-        input{
+        .taskbar__inputfield--input{
             width: 95%;
             background: none;
             border: none;
@@ -138,13 +138,13 @@ export default{
 }
 
 .list{
-    .task{
+    .list__task{
         display: flex;
         justify-content: space-between;
         padding: 1.5rem 0;
         border-bottom: solid lightgray 2px;
         max-width: 100%;
-        .field{
+        .list__task--field{
         display: flex;
         align-items: center;
         width: 90%;
@@ -154,8 +154,11 @@ export default{
                 word-wrap: break-word;
                 max-width: 80%;
             }
+            input{
+                transform: scale(1.25);
+            }
         }
-        .taskBtn{
+        .list__task--taskBtn{
             width: 10%;
             background: none;
             border: none;
@@ -164,7 +167,7 @@ export default{
         }
     }
 }
-//Animation
+//Task Animation
 .list-enter-active, 
 .list-leave-active{
     transition: all 0.5s ease;
@@ -179,7 +182,7 @@ export default{
     transform: translateX(30px);
 }
 
-
+//Done class
 .done{
     text-decoration: line-through;
     opacity: 0.8;
@@ -187,6 +190,7 @@ export default{
     transition: all 500ms ease-out;
 }
 
+//Preloader
 .tasksPreload{
     display: flex;
     flex: auto;
@@ -204,7 +208,7 @@ export default{
         color: #b4b4b4;
     }   
 }
-//Animation
+//Preloader Animation
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity 0.5s ease;
