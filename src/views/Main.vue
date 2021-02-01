@@ -1,7 +1,11 @@
 <template>
   <div class="main">
-    <Head />
-    <Taskbar />
+    <div class="main__header">
+      <Head />
+    </div>
+    <div class="main__tasks">
+      <Taskbar />
+    </div>
   </div>
 </template>
 
@@ -27,12 +31,20 @@ export default {
     font-family: 'montserrat';
     color: #707070;
     background-color: #fdfdfd;
-    max-width: 100%;
+    max-width: 100vw;
     height: 100vh;
     padding-left: clamp(2rem, 6vw, 16rem);
     padding-right: clamp(2rem, 6vw, 16rem);
     padding-top: clamp(2rem, 4vw, 6rem);
     display: flex;
     flex-direction: column;
+    .main__header{
+      flex: none;
+    }
+    .main__tasks{
+      display: flex;
+      flex-direction: column;
+      flex: auto;
+    }
   }
 </style>
