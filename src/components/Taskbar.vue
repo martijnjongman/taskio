@@ -40,6 +40,7 @@
                 <p>Let's add some tasks!</p>
         </div>
     </transition>
+
 </template>
 
 <script> 
@@ -57,7 +58,12 @@ export default{
 
         function addNewTask(){
             if (newTask.value !== ''){
-                tasks.value.push({
+                const accept = document.getElementById('error__handler')
+                accept.style.backgroundColor = "#87d39e";
+                setTimeout(() => {
+                    accept.style.backgroundColor = '#f4f4f4';
+                }, 1000);
+                tasks.value.unshift({
                     id: Date.now(),
                     done: false,
                     content: newTask.value,
@@ -105,80 +111,99 @@ export default{
 .taskbar{
     padding-top: clamp(2rem, 4vw, 6rem);
     flex: none;
-    .taskbar__inputfield{
-        transition: all 0.5s ease;
-        width: 100%;
+    z-index: 10;
+}
+.taskbar__inputfield{
+    transition: all 0.5s ease;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: space-between; 
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    input::placeholder{
+        color: #9e9e9e;
+        font-weight: 600;
+        font-size: clamp(0.8rem, 1.25vw, 1.25rem);
+    }
+    button{
+        background: none;
         border-radius: 5px;
         border: none;
-        background: #f4f4f4;
-        display: flex;
-        justify-content: space-between;      
-        .taskbar__inputfield--input{
-            width: 95%;
-            background: none;
-            border: none;
-            color: #707070;
-            padding: clamp(0.75rem, 2vw, 2rem); 
-            font-size: clamp(0.8rem, 1.25vw, 1.5rem);
-            font-weight: 700;
-        }
-        input::placeholder{
-            color: #c7c7c7;
-            font-weight: 600;
-            font-size: clamp(0.8rem, 1.25vw, 1.5rem);
-        }
-        button{
-            background: none;
-            border-radius: 5px;
-            border: none;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            padding: 0 clamp(0.75rem, 2vw, 2rem);
-            .cross{
-                width: clamp(15px, 2vw, 25px);
-                height: clamp(15px, 2vw, 25px);
-                :hover{
-                    fill: #737d8f;
-                    transition: .3s ease-in-out;
-                }                 
-            }
-        }
-    }
-}
-.list{
-    .list__task{
-        display: flex;
-        justify-content: space-between;
-        padding: 1.5rem 0;
-        border-bottom: solid lightgray 2px;
-        max-width: 100%;
-        .list__task--field{
         display: flex;
         align-items: center;
-        width: 90%;
-            p{
-                font-weight: 700;
-                padding: 0 1.5rem;
-                word-wrap: break-word;
-                max-width: 80%;
-            }
-            input{
-                transform: scale(1.25);
-            }
-        }
-        .list__task--taskBtn{
-            width: 10%;
-            background: none;
-            border: none;
-            cursor: pointer;
-            transform: scale(0.65);
-            display: flex;
-            justify-content: right;
-            align-items: center;
+        cursor: pointer;
+        padding: 0 clamp(0.75rem, 2vw, 2rem);
+        .cross{
+            width: clamp(15px, 2vw, 25px);
+            height: clamp(15px, 2vw, 25px);
+            :hover{
+                fill: #737d8f;
+                transition: .3s ease-in-out;
+            }                 
         }
     }
+}     
+.taskbar__inputfield--input{
+    width: 95%;
+    background: none;
+    border: none;
+    color: #707070;
+    padding: clamp(0.75rem, 2vw, 2rem); 
+    font-size: clamp(0.8rem, 1.25vw, 1.5rem);
+    font-weight: 700;
 }
+
+
+.list{
+    flex: auto;
+    width: 100%;
+    height: 50vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+.list__task{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    border-bottom: solid lightgray 2px;
+    max-width: 100%;
+    transition: all 0.5s ease;
+}
+.list__task--field{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    p{
+        font-weight: 700;
+        padding: 0 1.5rem;
+        word-wrap: break-word;
+        max-width: 80%;
+    }
+    input{
+        transform: scale(1.25);
+        margin-left: 0.5rem;
+    }
+}
+.list__task--taskBtn{
+    width: 10%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transform: scale(0.65);
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+//Media queries
+//Laptop
+@media (min-width: 1439px) {
+    .list__task{
+        padding: 3rem 0;
+    }
+}
+    
 //Task Animation
 .list-enter-active, 
 .list-leave-active{
