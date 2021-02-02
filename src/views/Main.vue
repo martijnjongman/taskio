@@ -27,29 +27,31 @@ export default {
 </script>
 
 <style lang="scss">
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import "@/assets/variables.scss";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  font-family: 'montserrat';
+  color: #707070;
+  background-color: $background;
+  max-width: 100vw;
+  height: 100vh;
+  padding-left: clamp(2rem, 6vw, 16rem);
+  padding-right: clamp(2rem, 6vw, 16rem);
+  padding-top: clamp(2rem, 4vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  .main__header{
+    flex: none;
   }
-  .main {
-    font-family: 'montserrat';
-    color: #707070;
-    background-color: #fdfdfd;
-    max-width: 100vw;
-    height: 100vh;
-    padding-left: clamp(2rem, 6vw, 16rem);
-    padding-right: clamp(2rem, 6vw, 16rem);
-    padding-top: clamp(2rem, 4vw, 6rem);
+  .main__tasks{
     display: flex;
     flex-direction: column;
-    .main__header{
-      flex: none;
-    }
-    .main__tasks{
-      display: flex;
-      flex-direction: column;
-      flex: auto;
-    }
+    flex: auto;
   }
+}
 </style>

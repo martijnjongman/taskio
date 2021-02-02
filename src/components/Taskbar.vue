@@ -92,7 +92,7 @@ export default{
 }
 </script>
 
-<style scope lang="scss">
+<style lang="scss">
 .taskbar{
     padding-top: clamp(2rem, 4vw, 6rem);
     flex: none;
