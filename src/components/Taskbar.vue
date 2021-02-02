@@ -1,6 +1,6 @@
 <template>
     <div class="taskbar">
-        <form @submit.prevent="addNewTask" class="taskbar__inputfield">
+        <form @submit.prevent="addNewTask" class="taskbar__inputfield" id="error__handler">
             <input v-model="newTask" type="text" name="newTask" class="taskbar__inputfield--input" placeholder="Add task">
 
             <button>
@@ -56,13 +56,21 @@ export default{
         const tasks = ref(tasksData);
 
         function addNewTask(){
-            tasks.value.push({
-                id: Date.now(),
-                done: false,
-                content: newTask.value,
-            });
-            newTask.value = "";
-            saveData();
+            if (newTask.value !== ''){
+                tasks.value.push({
+                    id: Date.now(),
+                    done: false,
+                    content: newTask.value,
+                });
+                newTask.value = "";
+                saveData();
+            } else {
+                const change = document.getElementById('error__handler')
+                change.style.backgroundColor = "#f59c9c";
+                setTimeout(() => {
+                      change.style.backgroundColor = '#f4f4f4';
+                }, 1000);
+            }
         }
 
         function toggleDone(task){
@@ -93,10 +101,12 @@ export default{
 </script>
 
 <style lang="scss">
+@import "@/assets/variables.scss";
 .taskbar{
     padding-top: clamp(2rem, 4vw, 6rem);
     flex: none;
     .taskbar__inputfield{
+        transition: all 0.5s ease;
         width: 100%;
         border-radius: 5px;
         border: none;
@@ -136,7 +146,6 @@ export default{
         }
     }
 }
-
 .list{
     .list__task{
         display: flex;
@@ -164,6 +173,9 @@ export default{
             border: none;
             cursor: pointer;
             transform: scale(0.65);
+            display: flex;
+            justify-content: right;
+            align-items: center;
         }
     }
 }
