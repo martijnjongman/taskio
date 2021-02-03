@@ -1,5 +1,7 @@
 module.exports = {
-  publicPath: '/taskio/',
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/taskio/'
+    : '/',
   css: {
     loaderOptions: {
       sass: {
