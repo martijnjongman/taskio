@@ -1,4 +1,5 @@
 module.exports = {
+  publicPath: '/taskio/',
   css: {
     loaderOptions: {
       sass: {
