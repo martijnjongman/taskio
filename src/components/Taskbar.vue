@@ -11,6 +11,7 @@
         name="newTask"
         class="taskbar__inputfield--input"
         placeholder="Add task"
+        maxlength="30"
       />
 
       <button>
@@ -231,7 +232,7 @@ export default {
   background: none;
   border: none;
   color: #707070;
-  padding: clamp(0.75rem, 2vw, 2rem);
+  padding: clamp(1.25rem, 2vw, 2rem);
   font-size: clamp(0.8rem, 1.25vw, 1.5rem);
   font-weight: 700;
 }
