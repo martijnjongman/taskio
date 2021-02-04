@@ -319,6 +319,7 @@ export default {
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: all 500ms ease-out;
   p {
     font-size: clamp(0.7rem, 3vw, 1.25rem);
     font-weight: 600;
@@ -334,5 +335,11 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+//Placeholder media querie
+@media (max-height: 410px) {
+  .tasksPlaceholder {
+    top: 110%;
+  }
 }
 </style>
