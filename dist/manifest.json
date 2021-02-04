@@ -1,15 +1,1 @@
-{
-    "name": "Taskio",
-    "short_name": "Taskio",
-    "icons": [
-        {
-            "src": "./img/icons/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image.png"
-        }
-    ],
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "white",
-    "theme_color": "green"
-}
+{"name":"Taskio","short_name":"Taskio","theme_color":" #fdfdfd","icons":[{"src":"./img/icons/android-chrome-192x192.png","sizes":"192x192","type":"image.png"}],"start_url":"/","display":"standalone","background_color":"#fdfdfd"}
