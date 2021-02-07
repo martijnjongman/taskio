@@ -41,65 +41,65 @@
         <label for="blue"></label>
         <p :class="{ done: task.done }">{{ task.content }}</p>
       </div>
-
+  
       <button class="list__task--taskBtn" @click="removeTodo(index)">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="34.833"
-          height="38.482"
-          viewBox="0 0 34.833 38.482"
-        >
-          <g
-            id="Icon_feather-trash-2"
-            data-name="Icon feather-trash-2"
-            transform="translate(1 1)"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="34.833"
+            height="38.482"
+            viewBox="0 0 34.833 38.482"
           >
-            <path
-              id="Path_2"
-              data-name="Path 2"
-              d="M4.5,9H37.333"
-              transform="translate(-4.5 -1.704)"
-              fill="none"
-              stroke="#f59c9c"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="3"
-            />
-            <path
-              id="Path_3"
-              data-name="Path 3"
-              d="M33.037,10.3V35.833a3.648,3.648,0,0,1-3.648,3.648H11.148A3.648,3.648,0,0,1,7.5,35.833V10.3m5.472,0V6.648A3.648,3.648,0,0,1,16.62,3h7.3a3.648,3.648,0,0,1,3.648,3.648V10.3"
-              transform="translate(-3.852 -3)"
-              fill="none"
-              stroke="#f59c9c"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="3"
-            />
-            <path
-              id="Path_4"
-              data-name="Path 4"
-              d="M15,16.5V27.444"
-              transform="translate(-2.231 -0.083)"
-              fill="none"
-              stroke="#f59c9c"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="3"
-            />
-            <path
-              id="Path_5"
-              data-name="Path 5"
-              d="M21,16.5V27.444"
-              transform="translate(-0.935 -0.083)"
-              fill="none"
-              stroke="#f59c9c"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="3"
-            />
-          </g>
-        </svg>
+            <g
+              id="Icon_feather-trash-2"
+              data-name="Icon feather-trash-2"
+              transform="translate(1 1)"
+            >
+              <path
+                id="Path_2"
+                data-name="Path 2"
+                d="M4.5,9H37.333"
+                transform="translate(-4.5 -1.704)"
+                fill="none"
+                stroke="#f59c9c"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+              />
+              <path
+                id="Path_3"
+                data-name="Path 3"
+                d="M33.037,10.3V35.833a3.648,3.648,0,0,1-3.648,3.648H11.148A3.648,3.648,0,0,1,7.5,35.833V10.3m5.472,0V6.648A3.648,3.648,0,0,1,16.62,3h7.3a3.648,3.648,0,0,1,3.648,3.648V10.3"
+                transform="translate(-3.852 -3)"
+                fill="none"
+                stroke="#f59c9c"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+              />
+              <path
+                id="Path_4"
+                data-name="Path 4"
+                d="M15,16.5V27.444"
+                transform="translate(-2.231 -0.083)"
+                fill="none"
+                stroke="#f59c9c"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+              />
+              <path
+                id="Path_5"
+                data-name="Path 5"
+                d="M21,16.5V27.444"
+                transform="translate(-0.935 -0.083)"
+                fill="none"
+                stroke="#f59c9c"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+              />
+            </g>
+          </svg>
       </button>
     </li>
   </transition-group>
@@ -274,7 +274,7 @@ export default {
   cursor: pointer;
   transform: scale(0.65);
   display: flex;
-  justify-content: right;
+  justify-items: end;
   align-items: center;
 }
 //Media queries
