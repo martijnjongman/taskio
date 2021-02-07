@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.d529c7339cbf04eb258b974f2ba13733.js"
+  "/precache-manifest.cee9d954b6dcda4fc5f141bb16501f25.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "taskio"});

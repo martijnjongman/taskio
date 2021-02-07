@@ -14,7 +14,8 @@
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "scope": "taskio",
+  "start_url": "taskio",
   "display": "standalone",
   "background_color": "#fdfdfd"
 }
