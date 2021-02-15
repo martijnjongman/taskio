@@ -1,1 +1,0 @@
-{"name":"Taskio","short_name":"Taskio","theme_color":" #fdfdfd","icons":[{"src":"./img/icons/192x192.png","sizes":"192x192","type":"image/png"},{"src":"./img/icons/512x512.png","sizes":"512x512","type":"image/png"}],"start_url":"taskio","display":"standalone","background_color":"#fdfdfd","scope":"taskio"}
