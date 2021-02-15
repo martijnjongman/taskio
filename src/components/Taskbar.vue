@@ -274,7 +274,7 @@ export default {
   cursor: pointer;
   transform: scale(0.65);
   display: flex;
-  justify-items: end;
+  justify-content: end;
   align-items: center;
 }
 //Media queries
