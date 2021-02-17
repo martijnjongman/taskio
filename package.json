@@ -10,18 +10,18 @@
     "predeploy": "npm run build"
   },
   "dependencies": {
+    "@vue/cli": "^4.5.0",
     "core-js": "^3.6.5",
     "icheck-material": "^1.0.1",
-    "vue": "^3.0.5",
+    "vue": "^3.0.0",
     "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/eslint-parser": "^7.12.1",
-    "@vue/cli-plugin-babel": "^5.0.0-alpha.3",
-    "@vue/cli-plugin-eslint": "^5.0.0-alpha.3",
-    "@vue/cli-plugin-router": "^5.0.0-alpha.3",
-    "@vue/cli-service": "^5.0.0-alpha.3",
+    "@vue/cli-plugin-babel": "^4.5.0",
+    "@vue/cli-plugin-eslint": "^4.5.0",
+    "@vue/cli-service": "^4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-prettier": "^6.0.0",
     "eslint": "^7.15.0",
